@@ -3,12 +3,12 @@ const input = require('readline-sync');
 // TODO 2: modify your quiz app to ask 5 questions //
 
 // TODO 1.1a: Define candidateName // 
-let candidateName = ("");
+let candidateName = "";
 
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
-let question = "How many days are there in a year?";
-let correctAnswer = 365;
-let candidateAnswer;
+let question = "Who was the first American woman in space? ";
+let correctAnswer = "Sally Ride";
+let candidateAnswer = "";
 
 
 //TODO: Variables for Part 2
@@ -19,7 +19,7 @@ let candidateAnswers;
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
-  input.question("What is your name?");
+  candidateName = input.question("What is your name?");
 }
 
 function askQuestion() {
@@ -43,7 +43,7 @@ function gradeQuiz(candidateAnswers) {
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
-   console.log();
+   console.log(`Hello, ${candidateName}! Welcome to the Minimum Viable Quiz page.`);
   askQuestion();
   gradeQuiz(this.candidateAnswers);
 }
