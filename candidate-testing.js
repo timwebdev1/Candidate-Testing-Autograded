@@ -24,14 +24,19 @@ function askForName() {
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-console.log()
-
+  console.log("Please answer this first question: ", question, );
+  candidateAnswer = input.question();
+  
 }
 
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-
+if (candidateAnswer === "Sally Ride") {
+  console.log("Yes! That is correct.")
+} else {
+  console.log("Sorry, that is not correct.")
+};
 
 
   let grade;  //TODO 3.2 use this variable to calculate the candidates score.
