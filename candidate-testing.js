@@ -33,30 +33,53 @@ function askForName() {
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-  // console.log("Please answer this first question: ", question, );
-  // candidateAnswer = input.question();
   for (let i = 0; i < questions.length; i++) {
-    console.log(questions[i]);
-    candidateAnswers = input.question();
-  }
+    response = input.question(`${i + 1}) ${questions[i]}`);
+    candidateAnswers.push(response);
+    // console.log("Your answer: ", candidateAnswers);
+    // console.log("Correct answer: ", correctAnswers[i]);
 
+  }
+  return candidateAnswers;
 }
 
 function gradeQuiz(candidateAnswers) {
-
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-  // if (candidateAnswers === true) {
-  //   console.log()
+  // if (candidateAnswers == correctAnswers) {
+  //   console.log("Correct!");
   // } else {
-  //   console.log("Sorry, that is not correct.")
-  // };
-  console.log(`You answered: ${candidateAnswers} and the correct answers are: ${correctAnswers}`);
-  // console.log(`Your Answers: ${candidateAnswers}; Correct Answers: ${correctAnswers}
-  //   `);
+  //   console.log("Incorrect.");
+  // }
 
+  for (let i = 0; i < candidateAnswers.length; i++) {
+    console.log(`Your Answer: ${candidateAnswers[i]}`);
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+    if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
+      console.log(`Correct Answer: ${correctAnswers[i]}`);
+    } else {
+      console.log(`Wrong! The correct answer is ${correctAnswers[i]}`);
+    }
 
+  }
+  let numOfCorrectAnswers = 0;
+
+for (let i = 0; i < correctAnswers.length; i++) {
+  if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
+    numOfCorrectAnswers++
+  }
+}
+
+  let numOfQuestions = correctAnswers.length;
+  let grade = (numOfCorrectAnswers) / (numOfQuestions) * 100;  //TODO 3.2 use this variable to calculate the candidates score.
+  
+  console.log(`>>> Overall Grade: ${grade} (${numOfCorrectAnswers}) of ${numOfQuestions}) <<<`);
+
+  if (grade >= 80) {
+    console.log(`>>> Status: PASSED <<<`);
+  } else {
+    console.log(`>>> Status: FAILED <<<`)
+  }
+ 
 
   return grade;
 }
@@ -64,7 +87,7 @@ function gradeQuiz(candidateAnswers) {
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
-  console.log(`Hello, ${candidateName}! Welcome to the Minimum Viable Quiz page. `);
+  console.log(`Candidate Name: ${candidateName}`);
   askQuestion();
   gradeQuiz(this.candidateAnswers);
 }
