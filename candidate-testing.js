@@ -34,23 +34,21 @@ function askForName() {
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
   for (let i = 0; i < questions.length; i++) {
-    response = input.question(`${i + 1}) ${questions[i]}`);
-    candidateAnswers.push(response);
-    // console.log("Your answer: ", candidateAnswers);
-    // console.log("Correct answer: ", correctAnswers[i]);
-
+    candidateInput = input.question(`${i + 1}) ${questions[i]}`);
+    candidateAnswers.push(candidateInput);
   }
   return candidateAnswers;
 }
 
 function gradeQuiz(candidateAnswers) {
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-  // if (candidateAnswers == correctAnswers) {
+  // if (candidateAnswer == correctAnswer) {
   //   console.log("Correct!");
   // } else {
   //   console.log("Incorrect.");
   // }
 
+    
   for (let i = 0; i < candidateAnswers.length; i++) {
     console.log(`Your Answer: ${candidateAnswers[i]}`);
 
